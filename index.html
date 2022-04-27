@@ -10,21 +10,41 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <script src="sudoku.js"></script>
+    <script src="game.js"></script>
 </head>
 
 
 
 <body>
-    <center>
-        <div id="main">
-            <h1>Sudoku</h1>
-            Complete this puzzle by filling the empty spaces and then press the button below to check if you're right!
-            
-            <table id="sudoku">
-                
-            </table>
+    <div id="main">
+        <h1>Sudoku</h1>
+        <p>Complete this puzzle by filling the empty spaces and then press the button below to check if you're right!
+        </p>
+        <b>
+            <p>Choose difficulty:</p>
+        </b>
+        <nav>
+            <div class="diffButton">EASY</div> 
+            <div class="diffButton">MEDIUM</div> 
+            <div class="diffButton">HARD</div> 
+            <div class="diffButton">VERY HARD</div> 
+        </nav>
 
+        <table id="sudoku">
+
+        </table>
+
+        <nav>
+            <div class="opButton">RESET</div>
+            <div class="opButton" id="checkButton">CHECK</div>
+        </nav>
+
+
+        <div id="time">
+            <p>Time elapsed:</p>
+            <p id="elapsed"></p>
         </div>
-    </center>
-</body>
 
+    </div>
+</body>

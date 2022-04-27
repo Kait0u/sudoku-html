@@ -1,8 +1,84 @@
+body
+{
+    display: flex;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
 h1
 {
     font-family: 'Ubuntu', sans-serif;
     font-size: 2.5rem;
     margin-bottom: 0.5%;
+}
+
+nav
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+table
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px black;
+}
+
+td
+{
+    max-width: 1%;
+    max-height: 1%;
+    min-width: 1%;
+    min-height: 1%;
+    border: 1px double;
+}
+
+.diffButton
+{
+    padding: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+    border-radius: 2rem;
+    border-style: dotted;
+    float: left;
+    margin: 1%;
+    margin-top: 0.01%;
+    margin-bottom: 0.01%;
+}
+
+.diffButton:hover
+{
+    cursor: pointer;
+}
+
+.opButton
+{
+    padding: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+    border-radius: 2rem;
+    border-style: dotted;
+    float: left;
+    margin: 1%;
+    margin-top: 0.01%;
+    margin-bottom: 0.01%;
+}
+
+.opButton:hover
+{
+    cursor: pointer;
+}
+
+#checkButton
+{
+    background-color: rgb(64, 133, 64);
+    min-width: 10%;
 }
 
 #main
@@ -11,4 +87,10 @@ h1
     margin: auto;
     margin-top: 0;
     margin-bottom: 0;
+}
+
+table
+{
+    margin-top: 5%;
+    margin-bottom: 5%;
 }

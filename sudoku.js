@@ -181,6 +181,45 @@ function fillSudoku(arr)
 function createSudoku()
 {
     let sudoku = emptyMatrix();
-    sudoku = fillSudoku();
+    sudoku = fillSudoku(sudoku);
     return sudoku;
+}
+
+function difficulty(sudoku, num) //0, 1, 2 or 3
+{
+    let output = sudoku;
+    let toRemove = [];
+    let howMany;
+    switch (num)
+    {
+        // intro
+        case 0:
+            howMany = randInt(45, 50);
+            break;
+        case 1:
+            howMany = randInt(36, 40);
+            break;
+        case 2: 
+            howMany = randInt(29, 33);
+            break;
+        case 3:
+            howMany = randInt(22, 25);
+            break;
+    }
+
+    while (toRemove.length < howMany)
+            {
+                let ind = randInt(0, 80);
+                if (!toRemove.includes(ind)) toRemove.push(ind);
+            }
+    
+    for (const cell of toRemove)
+    {
+        let row = Math.trunc(cell / 9);
+        let col = cell % 9;
+
+        output[row][col] = 0;
+    }
+
+    return output;
 }
