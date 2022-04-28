@@ -15,7 +15,6 @@ function reset(d)
     board = difficulty(answer, diff); 
     let content = generateTable(board);
     answer = [...temp];
-    console.table(answer);
     document.getElementById("sudoku").innerHTML = content;
     genUnknowns();
 
@@ -108,7 +107,6 @@ function genUnknowns()
     }
 
     for (let i = 0; i < unknowns; ++i) unknownsDict["unk" + i] = unknownsList[i];
-    console.table(unknownsDict);
 }
 
 function check()
