@@ -123,8 +123,9 @@ function randBox()
     return box;
 }
 
-function fillDiagonal(arr)
+function fillDiagonal(a)
 {
+    let arr = a.slice();
     if (arr.length == 9 && arr[randInd(arr)].length == 9)
     {
         for (let b = 0; b < 3; ++b)
@@ -143,8 +144,9 @@ function fillDiagonal(arr)
     return arr;
 }
 
-function fillGrid(arr)
+function fillGrid(a)
 {
+    let arr = a.slice();
     if (arr.length == 9 && arr[randInd(arr)].length == 9)
     {
         let row, col;
@@ -171,10 +173,11 @@ function fillGrid(arr)
     }
 }
 
-function fillSudoku(arr)
+function fillSudoku(a)
 {
-    fillDiagonal(arr);
-    fillGrid(arr);
+    let arr = [...a];
+    arr = fillDiagonal(arr);
+    arr = fillGrid(arr);
     return arr;
 }
 
@@ -187,7 +190,8 @@ function createSudoku()
 
 function difficulty(sudoku, num) //0, 1, 2 or 3
 {
-    let output = sudoku;
+    let output = [...sudoku];
+
     let toRemove = [];
     let howMany;
     switch (num)
@@ -207,6 +211,8 @@ function difficulty(sudoku, num) //0, 1, 2 or 3
             break;
     }
 
+    howMany = 81 - howMany;
+
     while (toRemove.length < howMany)
             {
                 let ind = randInt(0, 80);
@@ -220,6 +226,5 @@ function difficulty(sudoku, num) //0, 1, 2 or 3
 
         output[row][col] = 0;
     }
-
     return output;
 }

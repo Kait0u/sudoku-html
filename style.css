@@ -1,3 +1,8 @@
+:root
+{
+    --cell-size: 2rem;
+}
+
 body
 {
     display: flex;
@@ -10,6 +15,7 @@ h1
 {
     font-family: 'Ubuntu', sans-serif;
     font-size: 2.5rem;
+    margin-top: 1.5%;
     margin-bottom: 0.5%;
 }
 
@@ -27,16 +33,32 @@ table
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px black;
+    font-family: 'Lexend', sans-serif;
+    border-spacing: 0;
 }
 
 td
 {
-    max-width: 1%;
-    max-height: 1%;
-    min-width: 1%;
-    min-height: 1%;
-    border: 1px double;
+    transition: 0.75s;
+    align-items: center;
+    justify-content: center;
+    height: var(--cell-size);
+    width: var(--cell-size);
+    font-size: 1.5rem;
+    border: 0.05rem black solid;
+    margin: 0;
+    background-color: white;
+}
+
+input
+{
+    height: var(--cell-size);
+    width: var(--cell-size);
+    text-align: center;
+    border: none;
+    font-weight: 700;
+    font-size: 1.5rem;
+    background: transparent;
 }
 
 .diffButton
@@ -50,6 +72,7 @@ td
     margin: 1%;
     margin-top: 0.01%;
     margin-bottom: 0.01%;
+    transition: 0.75s;
 }
 
 .diffButton:hover
@@ -63,11 +86,14 @@ td
     padding-left: 2%;
     padding-right: 2%;
     border-radius: 2rem;
-    border-style: dotted;
+    border: black dotted;
     float: left;
     margin: 1%;
     margin-top: 0.01%;
     margin-bottom: 0.01%;
+    font-weight: 600;
+    color: white;
+    transition: 0.75s;
 }
 
 .opButton:hover
@@ -81,8 +107,15 @@ td
     min-width: 10%;
 }
 
+#resetButton
+{
+    background-color: rgb(146, 70, 70);
+    min-width: 10%;
+}
+
 #main
 {
+    margin: 0;
     font-family: 'Raleway', sans-serif;
     margin: auto;
     margin-top: 0;
@@ -91,6 +124,6 @@ td
 
 table
 {
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
 }

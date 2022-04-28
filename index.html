@@ -7,9 +7,8 @@
     <title>Sudoku</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@200&family=Raleway:wght@300&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
     <script src="sudoku.js"></script>
     <script src="game.js"></script>
 </head>
@@ -25,10 +24,10 @@
             <p>Choose difficulty:</p>
         </b>
         <nav>
-            <div class="diffButton">EASY</div> 
-            <div class="diffButton">MEDIUM</div> 
-            <div class="diffButton">HARD</div> 
-            <div class="diffButton">VERY HARD</div> 
+            <div class="diffButton" id="diff0" onclick="reset(0);">EASY</div> 
+            <div class="diffButton" id="diff1" onclick="reset(1);">MEDIUM</div> 
+            <div class="diffButton" id="diff2" onclick="reset(2);">HARD</div> 
+            <div class="diffButton" id="diff3" onclick="reset(3);">VERY HARD</div> 
         </nav>
 
         <table id="sudoku">
@@ -36,13 +35,13 @@
         </table>
 
         <nav>
-            <div class="opButton">RESET</div>
-            <div class="opButton" id="checkButton">CHECK</div>
+            <div class="opButton" id="resetButton" onclick="resetWithoutRegen();">RESET</div>
+            <div class="opButton" id="checkButton" onclick="check();">CHECK</div>
         </nav>
 
 
         <div id="time">
-            <p>Time elapsed:</p>
+            <b><p>Time elapsed:</p></b>
             <p id="elapsed"></p>
         </div>
 
