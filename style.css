@@ -1,6 +1,6 @@
 :root
 {
-    --cell-size: 2rem;
+    --cell-size: 2.5rem;
 }
 
 body
@@ -126,4 +126,10 @@ table
 {
     margin-top: 2.5%;
     margin-bottom: 2.5%;
+}
+
+#t
+{
+    margin: 0;
+    margin-top: 2%;
 }

@@ -1,9 +1,36 @@
+const second = 1000;
+
 let diff = 1;
 let answer;
 let board;
 let unknowns = 0;
 let cells = 0;
 let unknownsDict = {};
+let startDate = new Date();
+
+function timeFormat(timeMs)
+{
+    let seconds = Math.trunc(timeMs / 1000);
+    let minutes = Math.trunc(seconds / 60);
+    seconds %= 60;
+    let hours = Math.trunc(minutes / 60);
+    minutes %= 60;
+
+    if (hours < 10) hours = "0" + hours;
+    if (minutes < 10) minutes = "0" + minutes;
+    if (seconds < 10) seconds = "0" + seconds;
+
+    return (hours + " : " + minutes + " : " + seconds);
+}
+
+function timer()
+{
+    let now = new Date();
+    let elapsed = now.getTime() - startDate.getTime();
+
+    document.getElementById("elapsed").innerHTML = timeFormat(elapsed);
+    setTimeout(timer, second);
+}
 
 function reset(d)
 {
@@ -20,6 +47,8 @@ function reset(d)
 
     setButtonCol(d);
     tableStyleInitialize();
+    startDate = new Date();
+    timer();
 }
 
 function resetWithoutRegen()
@@ -27,6 +56,9 @@ function resetWithoutRegen()
     cells = 0;
     let content = generateTable(board);
     document.getElementById("sudoku").innerHTML = content;
+    tableStyleInitialize();
+    genUnknowns();
+    setButtonCol(d);
     tableStyleInitialize();
 }
 
@@ -97,6 +129,7 @@ function tableStyleInitialize()
 
 function genUnknowns()
 {
+    unknownsDict = {};
     let unknownsList = [];
     for (let r = 0; r < answer.length; ++r)
     {
@@ -109,10 +142,18 @@ function genUnknowns()
     for (let i = 0; i < unknowns; ++i) unknownsDict["unk" + i] = unknownsList[i];
 }
 
+function win()
+{
+    const t = document.getElementById("elapsed").innerHTML;
+
+    alert("Congratulations! You made it! \nYour time: " + t);
+    reset(diff);
+}
+
 function check()
 {
     let wrong = 0;
-    let inputs = document.getElementsByTagName("input");
+    // let inputs = document.getElementsByTagName("input");
     let fPar;
 
     for (let inp of Object.entries(unknownsDict))
@@ -133,11 +174,7 @@ function check()
         }
     }
 
-    if (wrong == 0)
-    {
-        alert("Congratulations! You made it!");
-        reset(diff);
-    }
+    if (wrong == 0) win();
 }
 
 window.onload = function()
